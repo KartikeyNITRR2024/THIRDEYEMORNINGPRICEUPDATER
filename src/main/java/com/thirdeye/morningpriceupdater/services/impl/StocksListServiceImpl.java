@@ -125,4 +125,17 @@ public class StocksListServiceImpl implements StocksListService {
             lock.writeLock().unlock();
         }
     }
+    
+    @Override
+    public List<Stocks> getAllStocks()
+    {
+    	lock.readLock().lock();
+    	List<Stocks> allStocks = new ArrayList<>();
+        try {
+            allStocks.addAll(idToStock.values());
+        } finally {
+            lock.readLock().unlock();
+        }
+        return allStocks;
+    }
 }

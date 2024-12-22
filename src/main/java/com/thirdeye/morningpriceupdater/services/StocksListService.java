@@ -12,4 +12,5 @@ public interface StocksListService {
 	public Stocks getIdToStock(Long stockId);
 	Map<Long, Stocks> getIdToStockInBatch(Long start, Long end);
 	void updateStockInBatches(List<LiveStockPayload> data) throws Exception;
+	List<Stocks> getAllStocks();
 }
